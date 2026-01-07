@@ -1,33 +1,4 @@
-// Smooth scrolling for main navigation links
-document.querySelectorAll('.nav-link').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const target = document.getElementById(targetId);
-
-        if (target) {
-            const offsetTop = target.offsetTop - 130; // Account for fixed nav + sub-nav
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-
-            // Update active state
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            this.classList.add('active');
-
-            // Show sub-nav if Projects is clicked
-            const subNav = document.querySelector('.sub-nav');
-            if (targetId === 'projects') {
-                subNav.classList.add('show');
-            } else {
-                subNav.classList.remove('show');
-            }
-        }
-    });
-});
+// No need for main nav click handling - now uses page links
 
 // Handle sub-navigation links
 document.querySelectorAll('.sub-nav-link').forEach(link => {
@@ -52,31 +23,7 @@ document.querySelectorAll('.sub-nav-link').forEach(link => {
     });
 });
 
-// Show/hide sub-nav based on scroll position
-window.addEventListener('scroll', () => {
-    const projectsSection = document.getElementById('projects');
-    const aboutSection = document.getElementById('about');
-    const subNav = document.querySelector('.sub-nav');
-    const scrollY = window.pageYOffset;
-
-    // Update main nav active state
-    if (projectsSection && aboutSection) {
-        const projectsTop = projectsSection.offsetTop - 150;
-        const aboutTop = aboutSection.offsetTop - 150;
-
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-        });
-
-        if (scrollY >= aboutTop) {
-            document.querySelector('.nav-link[href="#about"]')?.classList.add('active');
-            subNav.classList.remove('show');
-        } else if (scrollY >= projectsTop) {
-            document.querySelector('.nav-link[href="#projects"]')?.classList.add('active');
-            subNav.classList.add('show');
-        }
-    }
-});
+// Sub-nav is always visible on the projects page (index.html)
 
 // Optional: Add fade-in animation on scroll
 const observerOptions = {
@@ -95,12 +42,11 @@ const observer = new IntersectionObserver((entries) => {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Show sub-nav by default since Projects section is first
+    // Show sub-nav on projects page (index.html)
     const subNav = document.querySelector('.sub-nav');
-    subNav.classList.add('show');
-
-    // Set Projects nav link as active by default
-    document.querySelector('.nav-link[href="#projects"]')?.classList.add('active');
+    if (subNav) {
+        subNav.classList.add('show');
+    }
 
     // Observe project cards for animation
     const projectCards = document.querySelectorAll('.project-card');
