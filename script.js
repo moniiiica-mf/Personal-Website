@@ -1,38 +1,81 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Smooth scrolling for main navigation links
+document.querySelectorAll('.nav-link').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+
         if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed nav
+            const offsetTop = target.offsetTop - 130; // Account for fixed nav + sub-nav
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
             });
+
+            // Update active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+
+            // Show sub-nav if Projects is clicked
+            const subNav = document.querySelector('.sub-nav');
+            if (targetId === 'projects') {
+                subNav.classList.add('show');
+            } else {
+                subNav.classList.remove('show');
+            }
         }
     });
 });
 
-// Add active state to nav links based on scroll position
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.pageYOffset;
+// Handle sub-navigation links
+document.querySelectorAll('.sub-nav-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
 
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+        // Update active state in sub-nav
+        document.querySelectorAll('.sub-nav-link').forEach(l => {
+            l.classList.remove('active');
+        });
+        this.classList.add('active');
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            if (navLink) {
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                navLink.classList.add('active');
-            }
+        // Show/hide project categories
+        document.querySelectorAll('.project-category').forEach(category => {
+            category.classList.remove('active');
+        });
+        const targetCategory = document.getElementById(targetId);
+        if (targetCategory) {
+            targetCategory.classList.add('active');
         }
     });
+});
+
+// Show/hide sub-nav based on scroll position
+window.addEventListener('scroll', () => {
+    const projectsSection = document.getElementById('projects');
+    const aboutSection = document.getElementById('about');
+    const subNav = document.querySelector('.sub-nav');
+    const scrollY = window.pageYOffset;
+
+    // Update main nav active state
+    if (projectsSection && aboutSection) {
+        const projectsTop = projectsSection.offsetTop - 150;
+        const aboutTop = aboutSection.offsetTop - 150;
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        if (scrollY >= aboutTop) {
+            document.querySelector('.nav-link[href="#about"]')?.classList.add('active');
+            subNav.classList.remove('show');
+        } else if (scrollY >= projectsTop) {
+            document.querySelector('.nav-link[href="#projects"]')?.classList.add('active');
+            subNav.classList.add('show');
+        }
+    }
 });
 
 // Optional: Add fade-in animation on scroll
@@ -50,8 +93,16 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe project cards for animation
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
+    // Show sub-nav by default since Projects section is first
+    const subNav = document.querySelector('.sub-nav');
+    subNav.classList.add('show');
+
+    // Set Projects nav link as active by default
+    document.querySelector('.nav-link[href="#projects"]')?.classList.add('active');
+
+    // Observe project cards for animation
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
         card.style.opacity = '0';
