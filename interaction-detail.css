@@ -1,0 +1,130 @@
+/* Interaction Design Project Detail Page */
+
+.interaction-detail-section {
+    margin-top: 160px;
+    padding: 0 3rem 3rem 3rem;
+}
+
+/* Project Header */
+.project-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project-number {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.project-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: right;
+}
+
+.project-tags,
+.project-term {
+    font-size: 0.875rem;
+}
+
+/* Full Width Images */
+.full-image {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.image-placeholder {
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: var(--gray);
+}
+
+/* Description Section */
+.description-section {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.description-title h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.description-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.description-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .interaction-detail-section {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+    .description-section {
+        gap: 3rem;
+    }
+
+    .description-title h2 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .interaction-detail-section {
+        margin-top: 120px;
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .project-header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .header-right {
+        text-align: left;
+    }
+
+    .description-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .description-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .description-text p {
+        font-size: 0.875rem;
+    }
+
+    .full-image {
+        margin-bottom: 2rem;
+    }
+}

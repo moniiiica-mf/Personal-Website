@@ -1,0 +1,168 @@
+/* Installation Art Project Detail Page */
+
+.installation-detail-section {
+    margin-top: 160px;
+    padding: 3rem;
+}
+
+.installation-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+}
+
+/* Carousel Section without Thumbnails */
+.installation-carousel {
+    position: relative;
+}
+
+.carousel-main {
+    width: 100%;
+    position: relative;
+}
+
+.carousel-placeholder {
+    width: 100%;
+    padding-bottom: 75%;
+    background-color: var(--gray);
+    position: relative;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    font-size: 3rem;
+    color: var(--black);
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    z-index: 10;
+    transition: background 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.carousel-prev {
+    left: 1rem;
+}
+
+.carousel-next {
+    right: 1rem;
+}
+
+/* Installation Info Section */
+.installation-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 2rem;
+}
+
+.installation-meta {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0.5rem 1rem;
+}
+
+.project-number {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.project-title {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+}
+
+.project-show-link {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.project-show-link:hover {
+    color: var(--gray-text);
+}
+
+.installation-credits {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.installation-credits p {
+    margin-bottom: 0.25rem;
+}
+
+.installation-term {
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .installation-detail-section {
+        padding: 2rem;
+    }
+
+    .installation-detail-container {
+        gap: 3rem;
+    }
+
+    .carousel-arrow {
+        font-size: 2rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .installation-detail-section {
+        margin-top: 120px;
+        padding: 1.5rem;
+    }
+
+    .installation-detail-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .installation-info {
+        gap: 2rem;
+        padding-top: 0;
+    }
+
+    .carousel-arrow {
+        font-size: 1.5rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .carousel-prev {
+        left: 0.5rem;
+    }
+
+    .carousel-next {
+        right: 0.5rem;
+    }
+
+    .project-title {
+        font-size: 1.25rem;
+    }
+}
