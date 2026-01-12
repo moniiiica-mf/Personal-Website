@@ -2,7 +2,7 @@
 
 .interaction-detail-section {
     margin-top: 160px;
-    padding: 0 3rem 3rem 3rem;
+    padding: 0;
 }
 
 /* Project Header */
@@ -11,6 +11,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 3rem;
+    padding: 0 3rem;
+    padding-top: 2rem;
 }
 
 .header-left {
@@ -42,9 +44,11 @@
     font-size: 0.875rem;
 }
 
-/* Full Width Images */
+/* Full Width Images - Edge to Edge */
 .full-image {
-    width: 100%;
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 3rem;
 }
 
@@ -60,6 +64,7 @@
     grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
     margin-bottom: 3rem;
+    padding: 0 3rem;
 }
 
 .description-title h2 {
@@ -82,8 +87,9 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .interaction-detail-section {
-        padding: 0 2rem 2rem 2rem;
+    .project-header,
+    .description-section {
+        padding: 0 2rem;
     }
 
     .description-section {
@@ -98,7 +104,11 @@
 @media (max-width: 768px) {
     .interaction-detail-section {
         margin-top: 120px;
-        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .project-header,
+    .description-section {
+        padding: 0 1.5rem;
     }
 
     .project-header {

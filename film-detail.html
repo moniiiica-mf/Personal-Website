@@ -60,5 +60,44 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Film carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 5;
+
+        const prevButton = document.querySelector('.carousel-prev');
+        const nextButton = document.querySelector('.carousel-next');
+        const thumbnails = document.querySelectorAll('.thumbnail-item');
+
+        function updateCarousel(index) {
+            currentSlide = index;
+
+            // Update thumbnail active states
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === currentSlide);
+            });
+
+            // Here you would update the main image
+            // For now it just updates the active thumbnail
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel(currentSlide);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel(currentSlide);
+        });
+
+        // Thumbnail click handlers
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                updateCarousel(index);
+            });
+        });
+    </script>
 </body>
 </html>

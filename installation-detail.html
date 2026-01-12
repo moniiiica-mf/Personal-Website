@@ -49,5 +49,30 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Installation carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 5;
+
+        const prevButton = document.querySelector('.carousel-prev');
+        const nextButton = document.querySelector('.carousel-next');
+
+        function updateCarousel(index) {
+            currentSlide = index;
+            // Here you would update the main image
+            // For now it just cycles through the slides
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel(currentSlide);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel(currentSlide);
+        });
+    </script>
 </body>
 </html>
