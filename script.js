@@ -1,10 +1,8 @@
-// No need for main nav click handling - now uses page links
-
 // Handle sub-navigation links
 document.querySelectorAll('.sub-nav-link').forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
+        const targetCategory = this.getAttribute('data-category');
 
         // Update active state in sub-nav
         document.querySelectorAll('.sub-nav-link').forEach(l => {
@@ -16,44 +14,25 @@ document.querySelectorAll('.sub-nav-link').forEach(link => {
         document.querySelectorAll('.project-category').forEach(category => {
             category.classList.remove('active');
         });
-        const targetCategory = document.getElementById(targetId);
-        if (targetCategory) {
-            targetCategory.classList.add('active');
+
+        const targetElement = document.getElementById(targetCategory);
+        if (targetElement) {
+            targetElement.classList.add('active');
         }
     });
 });
 
-// Sub-nav is always visible on the projects page (index.html)
-
-// Optional: Add fade-in animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Show sub-nav on projects page (index.html)
-    const subNav = document.querySelector('.sub-nav');
-    if (subNav) {
-        subNav.classList.add('show');
+    // Set first category as active by default
+    const firstCategory = document.querySelector('.project-category');
+    if (firstCategory) {
+        firstCategory.classList.add('active');
     }
 
-    // Observe project cards for animation
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
+    // Set first sub-nav link as active
+    const firstSubNavLink = document.querySelector('.sub-nav-link');
+    if (firstSubNavLink) {
+        firstSubNavLink.classList.add('active');
+    }
 });

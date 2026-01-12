@@ -1,0 +1,135 @@
+/* Project Detail Page Specific Styles */
+
+.project-detail-section {
+    margin-top: 180px;
+    padding: 3rem;
+}
+
+.project-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    max-width: 1400px;
+}
+
+.project-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project-number {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.project-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.project-header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: right;
+}
+
+.project-tags,
+.project-term {
+    font-size: 0.875rem;
+}
+
+.project-image-container {
+    margin-bottom: 3rem;
+    max-width: 1400px;
+}
+
+.project-image-placeholder {
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: var(--gray);
+}
+
+.project-description {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    max-width: 1400px;
+}
+
+.description-left {
+    display: flex;
+    align-items: flex-start;
+}
+
+.description-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.description-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.description-right p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .project-detail-section {
+        padding: 2rem;
+    }
+
+    .project-header,
+    .project-description {
+        gap: 3rem;
+    }
+
+    .description-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-detail-section {
+        margin-top: 140px;
+        padding: 1.5rem;
+    }
+
+    .project-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .project-header-right {
+        text-align: left;
+    }
+
+    .project-description {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .description-title {
+        font-size: 1.5rem;
+    }
+
+    .description-right p {
+        font-size: 0.875rem;
+    }
+
+    .project-image-container {
+        margin-bottom: 2rem;
+    }
+}

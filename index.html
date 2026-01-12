@@ -10,10 +10,10 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">Your Name</a>
+            <a href="index.html" class="logo"></a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Projects</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html" class="nav-link active">(PROJECT)</a></li>
+                <li><a href="about.html" class="nav-link">(ABOUT)</a></li>
             </ul>
         </div>
     </nav>
@@ -22,94 +22,54 @@
     <nav class="sub-nav">
         <div class="sub-nav-container">
             <ul class="sub-nav-menu">
-                <li><a href="#interaction-design" class="sub-nav-link active">Interaction Design</a></li>
-                <li><a href="#film-design" class="sub-nav-link">Film Design</a></li>
-                <li><a href="#installation-art" class="sub-nav-link">Installation Art Design</a></li>
+                <li><a href="#interaction-design" class="sub-nav-link active" data-category="interaction-design">(INTERACTION)</a></li>
+                <li><a href="#film-design" class="sub-nav-link" data-category="film-design">(FILM)</a></li>
+                <li><a href="#installation-art" class="sub-nav-link" data-category="installation-art">(INSTALLATION)</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <!-- Interaction Design Subsection -->
-            <div id="interaction-design" class="project-category active">
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card">
-                        <div class="project-placeholder">
-                            <span class="placeholder-text">Project Image</span>
-                        </div>
-                        <div class="project-info">
-                            <h4 class="project-title">Interaction Design Project 01</h4>
-                            <p class="project-description">Brief description of the project goes here. This is a blocked-out placeholder.</p>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-card">
-                        <div class="project-placeholder">
-                            <span class="placeholder-text">Project Image</span>
-                        </div>
-                        <div class="project-info">
-                            <h4 class="project-title">Interaction Design Project 02</h4>
-                            <p class="project-description">Brief description of the project goes here. This is a blocked-out placeholder.</p>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-card">
-                        <div class="project-placeholder">
-                            <span class="placeholder-text">Project Image</span>
-                        </div>
-                        <div class="project-info">
-                            <h4 class="project-title">Interaction Design Project 03</h4>
-                            <p class="project-description">Brief description of the project goes here. This is a blocked-out placeholder.</p>
-                        </div>
-                    </article>
-                </div>
+    <section class="projects-section">
+        <!-- Interaction Design Projects -->
+        <div id="interaction-design" class="project-category active">
+            <div class="project-grid interaction-grid">
+                <a href="project-detail.html" class="project-item project-1">
+                    <div class="project-placeholder"></div>
+                </a>
+                <a href="project-detail.html" class="project-item project-2">
+                    <div class="project-placeholder"></div>
+                </a>
+                <a href="project-detail.html" class="project-item project-3">
+                    <div class="project-placeholder"></div>
+                </a>
             </div>
+        </div>
 
-            <!-- Film Design Subsection -->
-            <div id="film-design" class="project-category">
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card">
-                        <div class="project-placeholder wide">
-                            <span class="placeholder-text">Project Image/Video</span>
-                        </div>
-                        <div class="project-info">
-                            <h4 class="project-title">Film Design Project 01</h4>
-                            <p class="project-description">Brief description of the film project goes here. This is a blocked-out placeholder.</p>
-                        </div>
-                    </article>
-                </div>
+        <!-- Film Design Projects -->
+        <div id="film-design" class="project-category">
+            <div class="project-grid film-grid">
+                <a href="project-detail.html" class="project-item project-film-1">
+                    <div class="project-placeholder"></div>
+                </a>
+                <a href="project-detail.html" class="project-item project-film-2">
+                    <div class="project-placeholder"></div>
+                </a>
             </div>
+        </div>
 
-            <!-- Installation Art Design Subsection -->
-            <div id="installation-art" class="project-category">
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card">
-                        <div class="project-placeholder wide">
-                            <span class="placeholder-text">Project Image</span>
-                        </div>
-                        <div class="project-info">
-                            <h4 class="project-title">Installation Art Project 01</h4>
-                            <p class="project-description">Brief description of the installation art project goes here. This is a blocked-out placeholder.</p>
-                        </div>
-                    </article>
-                </div>
+        <!-- Installation Art Projects -->
+        <div id="installation-art" class="project-category">
+            <div class="project-grid installation-grid">
+                <a href="project-detail.html" class="project-item project-installation-1">
+                    <div class="project-placeholder"></div>
+                </a>
+                <a href="project-detail.html" class="project-item project-installation-2">
+                    <div class="project-placeholder"></div>
+                </a>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Your Name. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
