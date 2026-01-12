@@ -4,6 +4,8 @@
     margin-top: 180px;
     padding: 3rem;
     min-height: calc(100vh - 180px);
+    display: flex;
+    align-items: center;
 }
 
 .about-content {
@@ -11,6 +13,7 @@
     grid-template-columns: 1.5fr 1fr;
     gap: 6rem;
     max-width: 1400px;
+    width: 100%;
 }
 
 .about-left {
